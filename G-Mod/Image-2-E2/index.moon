@@ -81,7 +81,7 @@ concommand.Add "NAVY_GenImage", (PLYR,CMD,ARG,ARGS) ->
 				O ..= "\n\tif(I<=#{PX}) { timer(\"build_tm\",#{SPEED}),print(_HUD_PRINTCENTER,\"Image: \"+toString((I/#{PX})*100)+\"% Built\"),setName(\"Image: \"+toString((I/#{PX})*100)+\"% Built\") }"
 				O ..= "\n\telse {"
 				O ..= "\n\t\tprint(_HUD_PRINTTALK,\"Finished: Building Image\")"
-				O ..= "\n\t\tsetName(\"Press [E] to check for any errors! But be careful, it may cause an error!\")"
+				O ..= "\n\t\tprint(_HUD_PRINTTALK,\"Press [E] on the E2 to check for any errors! But be careful, it may  even cause an error its self!\")"
 				O ..= "\n\t}"
 				
 				-- /Checkup

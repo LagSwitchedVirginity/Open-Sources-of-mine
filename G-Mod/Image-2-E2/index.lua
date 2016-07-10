@@ -1,4 +1,4 @@
-local Update_URL = "https://gist.githubusercontent.com/NavyCo/78e5433c8d29afcad9ceb1760cf36db5/raw/Image-2-E2.lua"
+local Update_URL = "https://raw.githubusercontent.com/NavyCo/Open-Sources-of-mine/master/G-Mod/Image-2-E2/index.lua"
 concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
   local HexRGB
   HexRGB = function(hex)

@@ -50,14 +50,14 @@ concommand.Add "NAVY_GenImage", (PLYR,CMD,ARG,ARGS) ->
 
 								-- Holo
 								if PROP == "0"
-									if PX == 1 then O2 ..= "\nif(Index==#{PX}&&holoEntity(#{PX})) { "
-									else O2 ..= " elseif(Index==#{PX}&&holoEntity(#{PX})) { "
+									if PX == 1 then O2 ..= "\nif(Index==#{PX}&&!holoEntity(#{PX})) { "
+									else O2 ..= " elseif(Index==#{PX}&&!holoEntity(#{PX})) { "
 									O2 ..= "local Ent=holoCreate(#{PX},#{Pos},vec(#{SCALE}),ang(vec(0,0,0)),vec(#{HexRGB(Pixel)[1]},#{HexRGB(Pixel)[2]},#{HexRGB(Pixel)[3]}),\"#{MDL}\"),holoMaterial(#{PX},\"WTP/paint_2\")"
 									O2 ..= ",holoParent(#{PX},entity())"
 								-- Prop
 								else if PROP == "1"
-									if PX == 1 then O2 ..= "\nif(Index==#{PX}&&Ents[#{PX},array][2,entity]) { "
-									else O2 ..= " elseif(Index==#{PX}&&Ents[#{PX},array][2,entity]) { "
+									if PX == 1 then O2 ..= "\nif(Index==#{PX}&&!Ents[#{PX},array][2,entity]) { "
+									else O2 ..= " elseif(Index==#{PX}&&!Ents[#{PX},array][2,entity]) { "
 									O2 ..= "local Ent=propSpawn(\"#{MDL}\",#{Pos},ang(0,0,0),1),Ent:setColor(vec(#{HexRGB(Pixel)[1]},#{HexRGB(Pixel)[2]},#{HexRGB(Pixel)[3]}))"
 									-- if PX > 1  then O2 ..= ",weld(Ents[1,array][2,entity],Ent)"
 								O2 ..= ",Ents:pushArray( array( #{PX}, Ent ) )"

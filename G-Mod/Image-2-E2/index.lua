@@ -73,18 +73,18 @@ concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
                 local Pos = "vec(" .. tostring(PosX) .. "," .. tostring(PosY) .. "," .. tostring(PosZ) .. ")+vec(0,0,35)+entity():pos()"
                 if PROP == "0" then
                   if PX == 1 then
-                    O2 = O2 .. "\nif(Index==" .. tostring(PX) .. "&&holoEntity(" .. tostring(PX) .. ")) { "
+                    O2 = O2 .. "\nif(Index==" .. tostring(PX) .. "&&!holoEntity(" .. tostring(PX) .. ")) { "
                   else
-                    O2 = O2 .. " elseif(Index==" .. tostring(PX) .. "&&holoEntity(" .. tostring(PX) .. ")) { "
+                    O2 = O2 .. " elseif(Index==" .. tostring(PX) .. "&&!holoEntity(" .. tostring(PX) .. ")) { "
                   end
                   O2 = O2 .. "local Ent=holoCreate(" .. tostring(PX) .. "," .. tostring(Pos) .. ",vec(" .. tostring(SCALE) .. "),ang(vec(0,0,0)),vec(" .. tostring(HexRGB(Pixel)[1]) .. "," .. tostring(HexRGB(Pixel)[2]) .. "," .. tostring(HexRGB(Pixel)[3]) .. "),\"" .. tostring(MDL) .. "\"),holoMaterial(" .. tostring(PX) .. ",\"WTP/paint_2\")"
                   O2 = O2 .. ",holoParent(" .. tostring(PX) .. ",entity())"
                 else
                   if PROP == "1" then
                     if PX == 1 then
-                      O2 = O2 .. "\nif(Index==" .. tostring(PX) .. "&&Ents[" .. tostring(PX) .. ",array][2,entity]) { "
+                      O2 = O2 .. "\nif(Index==" .. tostring(PX) .. "&&!Ents[" .. tostring(PX) .. ",array][2,entity]) { "
                     else
-                      O2 = O2 .. " elseif(Index==" .. tostring(PX) .. "&&Ents[" .. tostring(PX) .. ",array][2,entity]) { "
+                      O2 = O2 .. " elseif(Index==" .. tostring(PX) .. "&&!Ents[" .. tostring(PX) .. ",array][2,entity]) { "
                     end
                     O2 = O2 .. "local Ent=propSpawn(\"" .. tostring(MDL) .. "\"," .. tostring(Pos) .. ",ang(0,0,0),1),Ent:setColor(vec(" .. tostring(HexRGB(Pixel)[1]) .. "," .. tostring(HexRGB(Pixel)[2]) .. "," .. tostring(HexRGB(Pixel)[3]) .. "))"
                   end

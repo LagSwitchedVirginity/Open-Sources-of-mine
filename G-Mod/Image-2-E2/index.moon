@@ -1,4 +1,5 @@
 -- NAVY_GenImage "URL" "FILE[without-.txt]" SCALE=1 RESO=32 PROP=0 SPEED=235
+Update_URL = "https://gist.githubusercontent.com/NavyCo/78e5433c8d29afcad9ceb1760cf36db5/raw/Image-2-E2.lua"
 --- The magic
 concommand.Add "NAVY_GenImage", (PLYR,CMD,ARG,ARGS) ->
 	HexRGB = (hex) ->
@@ -118,7 +119,7 @@ concommand.Add "NAVY_GenImage_Update", ->
 		MsgN "While fetching the new code..."
 		MsgN "\t#{error} had occured! So we can't :'(..."
 		return
-	http.Fetch "https://gist.githubusercontent.com/NavyCo/78e5433c8d29afcad9ceb1760cf36db5/raw/Image-2-E2.lua", onSuccess, onFailure
+	http.Fetch Update_URL, onSuccess, onFailure
 	return
 --- ==END==
 return

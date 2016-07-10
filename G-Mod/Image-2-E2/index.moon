@@ -79,6 +79,7 @@ concommand.Add "NAVY_GenImage", (PLYR,CMD,ARG,ARGS) ->
 				O ..= "\telse {"
 				O ..= "\t\tprint(_HUD_PRINTTALK,\"Finished: Building Image\")"
 				O ..= "\t\tprint(_HUD_PRINTTALK,\"Press [E] on the E2 to check for any errors! But be careful, it may  even cause an error its self!\")"
+				O ..= "\t\tsetName(\"Built\")"
 				O ..= "\t}"
 				
 				-- /Checkup

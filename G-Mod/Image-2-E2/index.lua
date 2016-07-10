@@ -117,6 +117,7 @@ concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
         O = O .. "\telse {"
         O = O .. "\t\tprint(_HUD_PRINTTALK,\"Finished: Building Image\")"
         O = O .. "\t\tprint(_HUD_PRINTTALK,\"Press [E] on the E2 to check for any errors! But be careful, it may  even cause an error its self!\")"
+        O = O .. "\t\tsetName(\"Built\")"
         O = O .. "\t}"
         O = O .. "} elseif(keyClk()) {\tlocal AE=owner():aimEntity(),\tlocal KeyP=keyClkPressed(),\tif(KeyP==\"e\"&&AE==entity()&&Checked==0) {\t\tChecked = 1,\t\tfor (I2=1, " .. tostring(PX) .. ") {"
         O = O .. "\t\t\tif("

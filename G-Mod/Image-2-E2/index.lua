@@ -1,3 +1,4 @@
+local Update_URL = "https://gist.githubusercontent.com/NavyCo/78e5433c8d29afcad9ceb1760cf36db5/raw/Image-2-E2.lua"
 concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
   local HexRGB
   HexRGB = function(hex)
@@ -158,5 +159,5 @@ concommand.Add("NAVY_GenImage_Update", function()
     MsgN("While fetching the new code...")
     MsgN("\t" .. tostring(error) .. " had occured! So we can't :'(...")
   end
-  http.Fetch("https://gist.githubusercontent.com/NavyCo/78e5433c8d29afcad9ceb1760cf36db5/raw/Image-2-E2.lua", onSuccess, onFailure)
+  http.Fetch(Update_URL, onSuccess, onFailure)
 end)

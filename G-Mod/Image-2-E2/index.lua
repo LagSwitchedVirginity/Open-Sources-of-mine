@@ -110,16 +110,16 @@ concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
         O = O .. ",timer(\"build_tm\",1)"
         O = O .. ",runOnKeys(owner(),1)"
         O = O .. "}"
-        O = O .. "\nfunction build(Index) {\t" .. tostring(O2) .. "\t}"
-        O = O .. "\nif(clk(\"build_tm\")) {"
-        O = O .. "\n\tI++,build(I),"
-        O = O .. "\n\tif(I<=" .. tostring(PX) .. ") { timer(\"build_tm\"," .. tostring(SPEED) .. "),print(_HUD_PRINTCENTER,\"Image: \"+toString((I/" .. tostring(PX) .. ")*100)+\"% Built\"),setName(\"Image: \"+toString((I/" .. tostring(PX) .. ")*100)+\"% Built\") }"
-        O = O .. "\n\telse {"
-        O = O .. "\n\t\tprint(_HUD_PRINTTALK,\"Finished: Building Image\")"
-        O = O .. "\n\t\tprint(_HUD_PRINTTALK,\"Press [E] on the E2 to check for any errors! But be careful, it may  even cause an error its self!\")"
-        O = O .. "\n\t}"
-        O = O .. "\n} elseif(keyClk()) {\n\tlocal AE=owner():aimEntity()\n\tlocal KeyP=keyClkPressed()\n\tif(KeyP==\"e\"&&AE==entity()&&Checked==0) {\n\t\tChecked = 1\n\t\tfor (I2=1, " .. tostring(PX) .. ") {"
-        O = O .. "\n\t\t\tif("
+        O = O .. "function build(Index) {\t" .. tostring(O2) .. "\t}"
+        O = O .. "if(clk(\"build_tm\")) {"
+        O = O .. "\tI++,build(I),"
+        O = O .. "\tif(I<=" .. tostring(PX) .. ") { timer(\"build_tm\"," .. tostring(SPEED) .. "),print(_HUD_PRINTCENTER,\"Image: \"+toString((I/" .. tostring(PX) .. ")*100)+\"% Built\"),setName(\"Image: \"+toString((I/" .. tostring(PX) .. ")*100)+\"% Built\") }"
+        O = O .. "\telse {"
+        O = O .. "\t\tprint(_HUD_PRINTTALK,\"Finished: Building Image\")"
+        O = O .. "\t\tprint(_HUD_PRINTTALK,\"Press [E] on the E2 to check for any errors! But be careful, it may  even cause an error its self!\")"
+        O = O .. "\t}"
+        O = O .. "} elseif(keyClk()) {\tlocal AE=owner():aimEntity(),\tlocal KeyP=keyClkPressed(),\tif(KeyP==\"e\"&&AE==entity()&&Checked==0) {\t\tChecked = 1,\t\tfor (I2=1, " .. tostring(PX) .. ") {"
+        O = O .. "\t\t\tif("
         if PROP == "0" then
           O = O .. "holoEntity(I2)"
         else
@@ -128,11 +128,11 @@ concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
           end
         end
         O = O .. ") {"
-        O = O .. "\n\t\t\tFEnt = Ents[1,array][2,entity]\n\t\t\tPEnt = Ents[I2-1,array][2,entity]\n\t\t\tEnt  = Ents[I2,array][2,entity]\n\t\t\tAEnt = Ents[I2+1,array][2,entity]\n\t\t\tprint(_HUD_PRINTTALK,\"Pixel#\"+I2+\" was found as missing! Attempting to replace!\")\n\t\t\tbuild(I2)"
-        O = O .. "\n\t\t\t}"
-        O = O .. "\n\t\t}"
-        O = O .. "\n\t}"
-        O = O .. "\n}"
+        O = O .. "\t\t\tFEnt = Ents[1,array][2,entity],\t\t\tPEnt = Ents[I2-1,array][2,entity],\t\t\tEnt  = Ents[I2,array][2,entity],\t\t\tAEnt = Ents[I2+1,array][2,entity],\t\t\tprint(_HUD_PRINTTALK,\"Pixel#\"+I2+\" was found as missing! Attempting to replace!\"),\t\t\tbuild(I2)"
+        O = O .. "\t\t\t}"
+        O = O .. "\t\t}"
+        O = O .. "\t}"
+        O = O .. "}"
         MsgN("Pixel Count: " .. tostring(PX), "\t", "Row Count: " .. tostring(RC), "\t", "Pixels Per Row " .. tostring(PX / RC), "\t", "Build Time: " .. tostring(Tit))
         file.Write("expression2/" .. tostring(FILE) .. ".txt", O)
       end

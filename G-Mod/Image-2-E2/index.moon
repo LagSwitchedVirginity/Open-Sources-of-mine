@@ -63,10 +63,7 @@ concommand.Add "NAVY_GenImage", (PLYR,CMD,ARG,ARGS) ->
 								O2 ..= ",Ents:pushArray( array( #{PX}, Ent ) )"
 								O2 ..= "}"
 				Tits = (PX * SPEED) / 1e3
-				Tit = (
-					if Tits >= 60 "#{Tits/60} Minutes"
-					else "#{Tits} Seconds"
-				)
+				Tit = if Tits >= 60 "#{Tits/60} Minutes" else "#{Tits} Seconds"
 				O ..= "@persist [I Checked]:number [PEnt]:entity [Ents]:table"
 				O ..= "\nif(first()) {"
 				O ..= "Checked=0,propSpawnUndo(0),propSpawnEffect(0),enableConstraintUndo(0)"
@@ -87,8 +84,7 @@ concommand.Add "NAVY_GenImage", (PLYR,CMD,ARG,ARGS) ->
 				-- /Checkup
 				O ..= "\n} elseif(keyClk()) {\n\tlocal AE=owner():aimEntity()\n\tlocal KeyP=keyClkPressed()\n\tif(KeyP==\"e\"&&AE==entity()&&Checked==0) {\n\t\tChecked = 1\n\t\tfor (I2=1, #{PX}) {"
 				O ..= "\n\t\t\tif("
-				if PROP == "0" then O..="holoEntity(I2):model()==\"\")"
-				else if PROP == "1" then O..="Ents[I2,array][2,entity]"
+				if PROP == "0" then O..="holoEntity(I2)" else if PROP == "1" then O..="Ents[I2,array][2,entity]"
 				O ..= ") {"
 				-- O ..= "\n\t\t\tFEnt = Ents[1,array][2,entity]\n\t\t\tPEnt = Ents[I2-1,array][2,entity]\n\t\t\tEnt  = Ents[I2,array][2,entity]\n\t\t\tAEnt = Ents[I2+1,array][2,entity]\n\t\t\tprint(_HUD_PRINTTALK,\"Pixel#\"+I2+\" was found as missing! Attempting to replace!\")\n\t\t\tbuild(I2)\n\t\t\tif(I2 > 1) {\n\t\t\t\tif(I2 == 1) { weld(FEnt,Ent) }\n\t\t\t\tweld(AEnt,Ent), weld(PEnt,Ent)\n\t\t\t}"
 				O ..= "\n\t\t\tFEnt = Ents[1,array][2,entity]\n\t\t\tPEnt = Ents[I2-1,array][2,entity]\n\t\t\tEnt  = Ents[I2,array][2,entity]\n\t\t\tAEnt = Ents[I2+1,array][2,entity]\n\t\t\tprint(_HUD_PRINTTALK,\"Pixel#\"+I2+\" was found as missing! Attempting to replace!\")\n\t\t\tbuild(I2)"

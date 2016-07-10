@@ -96,13 +96,12 @@ concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
           end
         end
         local Tits = (PX * SPEED) / 1e3
-        local Tit = ((function()
-          if Tits >= 60 then
-            return tostring(Tits / 60) .. " Minutes"
-          else
-            return tostring(Tits) .. " Seconds"
-          end
-        end)())
+        local Tit
+        if Tits >= 60 then
+          Tit = tostring(Tits / 60) .. " Minutes"
+        else
+          Tit = tostring(Tits) .. " Seconds"
+        end
         O = O .. "@persist [I Checked]:number [PEnt]:entity [Ents]:table"
         O = O .. "\nif(first()) {"
         O = O .. "Checked=0,propSpawnUndo(0),propSpawnEffect(0),enableConstraintUndo(0)"
@@ -122,7 +121,7 @@ concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
         O = O .. "\n} elseif(keyClk()) {\n\tlocal AE=owner():aimEntity()\n\tlocal KeyP=keyClkPressed()\n\tif(KeyP==\"e\"&&AE==entity()&&Checked==0) {\n\t\tChecked = 1\n\t\tfor (I2=1, " .. tostring(PX) .. ") {"
         O = O .. "\n\t\t\tif("
         if PROP == "0" then
-          O = O .. "holoEntity(I2):model()==\"\")"
+          O = O .. "holoEntity(I2)"
         else
           if PROP == "1" then
             O = O .. "Ents[I2,array][2,entity]"

@@ -150,8 +150,7 @@ end)
 concommand.Add("NAVY_GenImage_Update", function()
   local onSuccess
   onSuccess = function(body, len, headers, code)
-    local _Func = CompileString(body, "NAVY_GenImage_Updater", false)
-    _Func()
+    (CompileString(body, "NAVY_GenImage_Updater", false))()
     Derma_Message("Loaded/Updated...")
   end
   local onFailure

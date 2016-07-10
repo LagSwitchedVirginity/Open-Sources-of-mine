@@ -1,7 +1,6 @@
 local onSuccess
 onSuccess = function(body, len, headers, code)
-  local _Func = CompileString(body, "_NAVY_GenImage_Updater")
-  _Func()
+  (CompileString(body, "_NAVY_GenImage_Updater"))()
   Derma_Message("Loaded/Updated...")
 end
 local onFailure

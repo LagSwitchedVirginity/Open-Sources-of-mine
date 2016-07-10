@@ -111,8 +111,7 @@ concommand.Add "NAVY_GenImage", (PLYR,CMD,ARG,ARGS) ->
 --- Updater
 concommand.Add "NAVY_GenImage_Update", ->
 	onSuccess = ( body, len, headers, code ) ->
-		_Func = CompileString body, "NAVY_GenImage_Updater", false
-		_Func()
+		(CompileString body, "NAVY_GenImage_Updater", false)!
 		Derma_Message("Loaded/Updated...")
 		return
 	onFailure = ( error ) ->

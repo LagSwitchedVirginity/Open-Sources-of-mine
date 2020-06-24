@@ -7,6 +7,10 @@ This is just a repository of things I think should be public.
 # TODOs
 - [ ] File upload (PHP and NodeJS)
 - [ ] Coming soon page&counter with admin panel system (PHP)
+- [ ] Chat system with logs (PHP and NodeJS)
+  - [ ] A logless version (PHP and NodeJS)
+- [ ] Password Manager (PHP)
+- [ ] BTC exchange calculator online
 
 -----
 
@@ -20,9 +24,7 @@ This is just a repository of things I think should be public.
 
 # Website related
 ## PHP
-### [License Key generator](./PHP/Licensekey.php)
-> [Tested through 5.4.0-7.4.7](https://3v4l.org/T0pvE)
-
+### [License Key generator](./PHP/Licensekey.php) ([Tested through 5.4.0-7.4.7](https://3v4l.org/T0pvE))
 This was made because if I'm to be brutally honest, I was upset at seeing on [CodeCanyon](https://codecanyon.net/) scripts to generate license keys / serial numbers, charging from $6-$9 for a 5min tops script.
 Example output [.txt](./Examples/Licensekey.txt) | [.php](Examples/Licensekey.php) 
 - generate :: generates key

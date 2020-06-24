@@ -4,6 +4,12 @@ This is just a repository of things I think should be public.
 
 -----
 
+# TODOs
+- [ ] File upload (PHP and NodeJS)
+- [ ] Coming soon page&counter with admin panel system (PHP)
+
+-----
+
 # Gaming
 ## GMOD
 ### Image to E2
@@ -16,6 +22,7 @@ This is just a repository of things I think should be public.
 ## PHP
 ### [License Key generator](./PHP/Licensekey.php)
 This was made because if I'm to be brutally honest, I was upset at seeing on [CodeCanyon](https://codecanyon.net/) scripts to generate license keys / serial numbers, charging from $6-$9 for a 5min tops script
+Example output [.txt](./Examples/Licensekey.txt) | [.php](Examples/Licensekey.php) 
 - generate :: generates key
 ```php
     /**

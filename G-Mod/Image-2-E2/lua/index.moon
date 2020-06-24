@@ -1,16 +1,16 @@
--- NAVY_GenImage "URL" "FILE[without-.txt]" SCALE=1 RESO=32 PROP=0 SPEED=235
-Update_URL = "https://raw.githubusercontent.com/NavyCo/Open-Sources-of-mine/master/G-Mod/Image-2-E2/index.lua"
+-- LSV_GenImage "URL" "FILE[without-.txt]" SCALE=1 RESO=32 PROP=0 SPEED=235
+Update_URL = "https://raw.githubusercontent.com/LagSwitchedVirginity/Open-Sources-of-mine/master/G-Mod/Image-2-E2/index.lua"
 --- The magic
-concommand.Add "NAVY_GenImage", (PLYR,CMD,ARG,ARGS) ->
+concommand.Add "LSV_GenImage", (PLYR,CMD,ARG,ARGS) ->
 	HexRGB = (hex) ->
 		hex = string.gsub(hex,"#","")
 		return {tonumber("0x"..string.sub(hex,1,2)),tonumber("0x"..string.sub(hex,3,4)),tonumber("0x"..string.sub(hex,5,6))}
 	if table.Count(ARG) == 0 -- Checking if input CMD == valid
-		print("You fucktard! You need a URL!","Arguments: \"URL\" \"FILE\"=\"NAVY_GenImage\" SCALE=1 RESO=32 PROP=0 SPEED=235")
+		print("You fucktard! You need a URL!","Arguments: \"URL\" \"FILE\"=\"LSV_GenImage\" SCALE=1 RESO=32 PROP=0 SPEED=235")
 	else
 		-- Sets Values into Variables
 		URL = ARG[1]
-		FILE = if ARG[2] then ARG[2] else "NAVY_GenImage"
+		FILE = if ARG[2] then ARG[2] else "LSV_GenImage"
 		SCALE = if ARG[3] then ARG[3] else "1"
 		RESO = if ARG[4] then ARG[4] else "32"
 		PROP = if ARG[5] then ARG[5] else "0"
@@ -107,9 +107,9 @@ concommand.Add "NAVY_GenImage", (PLYR,CMD,ARG,ARGS) ->
 		print("http://www.degraeve.com/img2txt-yay.php?url=#{URL}&mode=H&size=#{RESO}&charstr=%23&order=O&invert=N")
 	return
 --- Updater
-concommand.Add "NAVY_GenImage_Update", ->
+concommand.Add "LSV_GenImage_Update", ->
 	onSuccess = ( body, len, headers, code ) ->
-		(CompileString body, "NAVY_GenImage_Updater", false)!
+		(CompileString body, "LSV_GenImage_Updater", false)!
 		Derma_Message("Loaded/Updated...")
 		return
 	onFailure = ( error ) ->

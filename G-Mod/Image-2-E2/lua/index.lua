@@ -1,5 +1,5 @@
-local Update_URL = "https://raw.githubusercontent.com/NavyCo/Open-Sources-of-mine/master/G-Mod/Image-2-E2/index.lua"
-concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
+local Update_URL = "https://raw.githubusercontent.com/LagSwitchedVirginity/Open-Sources-of-mine/master/G-Mod/Image-2-E2/index.lua"
+concommand.Add("LSV_GenImage", function(PLYR, CMD, ARG, ARGS)
   local HexRGB
   HexRGB = function(hex)
     hex = string.gsub(hex, "#", "")
@@ -10,14 +10,14 @@ concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
     }
   end
   if table.Count(ARG) == 0 then
-    print("You fucktard! You need a URL!", "Arguments: \"URL\" \"FILE\"=\"NAVY_GenImage\" SCALE=1 RESO=32 PROP=0 SPEED=235")
+    print("You fucktard! You need a URL!", "Arguments: \"URL\" \"FILE\"=\"LSV_GenImage\" SCALE=1 RESO=32 PROP=0 SPEED=235")
   else
     local URL = ARG[1]
     local FILE
     if ARG[2] then
       FILE = ARG[2]
     else
-      FILE = "NAVY_GenImage"
+      FILE = "LSV_GenImage"
     end
     local SCALE
     if ARG[3] then
@@ -147,10 +147,10 @@ concommand.Add("NAVY_GenImage", function(PLYR, CMD, ARG, ARGS)
     print("http://www.degraeve.com/img2txt-yay.php?url=" .. tostring(URL) .. "&mode=H&size=" .. tostring(RESO) .. "&charstr=%23&order=O&invert=N")
   end
 end)
-concommand.Add("NAVY_GenImage_Update", function()
+concommand.Add("LSV_GenImage_Update", function()
   local onSuccess
   onSuccess = function(body, len, headers, code)
-    (CompileString(body, "NAVY_GenImage_Updater", false))()
+    (CompileString(body, "LSV_GenImage_Updater", false))()
     Derma_Message("Loaded/Updated...")
   end
   local onFailure
